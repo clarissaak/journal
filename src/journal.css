@@ -34,7 +34,7 @@
 }
 
 .weekday {
-  width: 127px;
+  width: 14.27%;
   text-align: center;
 }
 
@@ -43,15 +43,15 @@
   flex-grow: 1;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   box-sizing: border-box;
+  border: .5px solid #a6a6a6;
 }
 
 .calendar-day {
-  width: 125px;
+  width: 14.173%;
   height: 80px;
   position: relative;
-  border: 1px solid #a6a6a6;
+  border: .25px solid #a6a6a6;
 }
 
 .calendar-day:hover {
