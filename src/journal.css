@@ -1,0 +1,74 @@
+.journal {
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    padding: 25px 50px;
+}
+.calendar {
+  width: 900px;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+}
+
+.calendar-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.calendar-body {
+  width: 100%;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.table-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.weekday {
+  width: 127px;
+  text-align: center;
+}
+
+.table-content {
+  width: 100%;
+  flex-grow: 1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.calendar-day {
+  width: 125px;
+  height: 80px;
+  position: relative;
+  border: 1px solid #a6a6a6;
+}
+
+.calendar-day:hover {
+  background-color: rgba(0,0,0,.10);
+}
+
+.calendar-day p {
+  position: absolute;
+  right: 10px;
+  color: #a6a6a6;
+}
+
+.current p {
+  color: #000000;
+}
+
+.selected p {
+  color: #cc0000;
+  font-weight: bold;
+}
