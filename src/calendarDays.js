@@ -30,7 +30,9 @@ function CalendarDays(props) {
         {
         currentDays.map((day) => {
             return (
-            <div className={"calendar-day" + (day.currentMonth ? " current" : "") + (day.selected ? " selected" : "")}
+            <div 
+                key={day.date.toISOString()}
+                className={"calendar-day" + (day.currentMonth ? " current" : "") + (day.selected ? " selected" : "")}
                     onClick={() => props.changeCurrentDay(day)}>
                 <p>{day.number}</p>
             </div>

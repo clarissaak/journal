@@ -1,43 +1,69 @@
-import React, {Component} from "react";
+import { useState } from "react";
 import CalendarDays from "./calendarDays";
-import styles from './journal.css'
+import './journal.css'
 
-export default class Journal extends Component {
-    constructor() {
-    super();
+function Journal() {
 
-    this.weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-    this.months = ['January', 'February', 'March', 'April', 'May', 'June', 
+    const weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    const months = ['January', 'February', 'March', 'April', 'May', 'June', 
                    'July', 'August', 'September', 'October', 'November', 'December'];
 
-    this.state = {
-        currentDay: new Date()
-    }
+    const [currentDay, setCurrentDay] = useState(new Date());
+    
+
+    function changeCurrentDay(day) {
+        setCurrentDay(new Date(day.year, day.month, day.number));
     }
 
-    changeCurrentDay = (day) => {
-        this.setState({ currentDay: new Date(day.year, day.month, day.number) });
-    }
+/**    const [inputEntry, setInputEntry] = useState("");
+    const [entries, setEntries] = useState([]);
 
-    render() {
-        return (
-            <div className="journal">
-                <div className="calendar">
-                    <div className="calendar-header">
-                    <h2>{this.months[this.state.currentDay.getMonth()]} {this.state.currentDay.getFullYear()}</h2>
-                    </div>
-                    <div className="calendar-body">
-                    <div className="table-header">
-                        {
-                        this.weekdays.map((weekday) => {
-                            return <div className="weekday"><p>{weekday}</p></div>
-                        })
-                        }
-                    </div>
-                    <CalendarDays day={this.state.currentDay} changeCurrentDay={this.changeCurrentDay} />
-                    </div>
+    function addEntry() {
+        if (inputEntry.trim() === "") {
+            console.warn("Please enter an entry.");
+            return;
+        }
+
+        if (entries.length >= 7) {
+            console.warn("Maximum of 7 entries.");
+            return;
+        }
+
+        const newEntry = {
+            text: inputEntry,
+            completed: false
+        };
+
+        setEntries([...entries, newEntry]);
+        setInputEntry("");
+    }
+ */   
+
+    
+
+    
+    return (
+        <div className="journal">
+            <div className="calendar">
+                <div className="calendar-header">
+                <h2>{months[currentDay.getMonth()]} {currentDay.getFullYear()}</h2>
                 </div>
+                    <div className="calendar-body">
+                        <div className="table-header">
+                            {
+                            weekdays.map((weekday) => {
+                                return <div className="weekday"><p>{weekday}</p></div>
+                            })
+                            }
+                        </div>
+                        <CalendarDays day={currentDay} changeCurrentDay={changeCurrentDay} />
+                    </div>
+                    
+                </div>
+
             </div>
             )
-    }
+    
 }
+
+export default Journal;
