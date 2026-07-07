@@ -42,17 +42,29 @@
 .table-content {
   width: 100%;
   flex-grow: 1;
-  display: flex;
-  flex-wrap: wrap;
-  box-sizing: border-box;
-  border: .5px solid #a6a6a6;
+
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+
+  border: 1px solid #a6a6a6;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 .calendar-day {
-  width: 14.173%;
   height: 80px;
   position: relative;
-  border: .25px solid #a6a6a6;
+
+  border-right: 1px solid #a6a6a6;
+  border-bottom: 1px solid #a6a6a6;
+}
+
+.calendar-day:nth-child(7n) {
+  border-right: none;
+}
+
+.calendar-day:nth-last-child(-n+7) {
+  border-bottom: none;
 }
 
 .calendar-day:hover {
@@ -75,6 +87,20 @@
   font-weight: bold;
 }
 
+.entry-indicator {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+
+    width: 8px;
+    height: 8px;
+
+    transform: translateX(-50%);
+
+    background-color: #e8b4b4;
+    border-radius: 50%;
+}
+
 .entry-panel {
   display: flex;
   flex-direction: column;
@@ -82,14 +108,24 @@
 }
 
 .entries {
-  display: block;
   height: 75%;
+}
+
+.entries ul {
+  justify-items: left;
+  list-style-type: circle;
+  padding: 0 20px ;
+}
+
+.entries li {
+  padding: 5px;
 }
 
 h3 {
   color: #cc0000;
+  margin-bottom: 0;
 }
 
-.add-entry {
+form {
     position: relative;
 }

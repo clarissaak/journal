@@ -29,15 +29,31 @@ function CalendarDays(props) {
     <div className="table-content">
         {
         currentDays.map((day) => {
-            return (
+
+        const dateKey = day.date.toISOString().split("T")[0];
+
+        const hasEntry =
+            props.entries[dateKey] &&
+            props.entries[dateKey].length > 0;
+
+        return (
             <div 
                 key={day.date.toISOString()}
-                className={"calendar-day" + (day.currentMonth ? " current" : "") + (day.selected ? " selected" : "")}
-                    onClick={() => props.changeCurrentDay(day)}>
+                className={
+                    "calendar-day" +
+                    (day.currentMonth ? " current" : "") +
+                    (day.selected ? " selected" : "")
+                }
+                onClick={() => props.changeCurrentDay(day)}
+            >
                 <p>{day.number}</p>
+
+                {hasEntry && (
+                    <span className="entry-indicator"></span>
+                )}
             </div>
-            )
-        })
+        )
+    })
         }
     </div>
     )

@@ -56,30 +56,39 @@ function Journal() {
                             })
                             }
                         </div>
-                        <CalendarDays day={currentDay} changeCurrentDay={changeCurrentDay} />
+                        <CalendarDays 
+                            day={currentDay} 
+                            changeCurrentDay={changeCurrentDay} 
+                            entries={entries}
+                        />
                     </div>
                 </div>
                 <div className="entry-panel">
+                    <h3>{months[currentDay.getMonth()]} {currentDay.getDate()}</h3>
                     <div className="entries">
-                        <h3>{months[currentDay.getMonth()]} {currentDay.getDate()}</h3>
-                        {todaysEntries.map((entry, index) => (
-                            <p key={index}>{entry.text}</p>
-                        ))}
+                        <ul>
+                            {todaysEntries.map((entry, index) => (
+                                <li key={index}>
+                                    {entry.text}
+                                </li>
+                            ))}
+                        </ul>
                     </div>
-                    <div className="add-entry">
-                            <input
-                                type="text"
-                                placeholder="Write your entry here..."
-                                value={inputEntry}
-                                onChange={(e) =>
-                                    setInputEntry(e.target.value)
-                                }
-                            />
+                    <form onSubmit={(e) => {
+                        e.preventDefault();
+                        addEntry();
+                    }}>
+                        <input
+                            type="text"
+                            placeholder="Write your entry here..."
+                            value={inputEntry}
+                            onChange={(e) => setInputEntry(e.target.value)}
+                        />
 
-                            <button className="add-btn" onClick={addEntry}>
-                                +
-                            </button>
-                    </div>
+                        <button className="add-btn" type="submit">
+                            +
+                        </button>
+                    </form>
                 </div>
             </div>
             )
