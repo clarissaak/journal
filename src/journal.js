@@ -15,8 +15,9 @@ function Journal() {
         setCurrentDay(new Date(day.year, day.month, day.number));
     }
 
-/**    const [inputEntry, setInputEntry] = useState("");
-    const [entries, setEntries] = useState([]);
+    const [inputEntry, setInputEntry] = useState("");
+    const [entries, setEntries] = useState({});
+    const currentDateKey = currentDay.toISOString().split("T")[0];
 
     function addEntry() {
         if (inputEntry.trim() === "") {
@@ -24,24 +25,23 @@ function Journal() {
             return;
         }
 
-        if (entries.length >= 7) {
-            console.warn("Maximum of 7 entries.");
-            return;
-        }
-
         const newEntry = {
-            text: inputEntry,
-            completed: false
+            text: inputEntry
         };
 
-        setEntries([...entries, newEntry]);
+        setEntries(prevEntries => ({
+            ...prevEntries,
+            [currentDateKey]: [
+                ...(prevEntries[currentDateKey] || []),
+                newEntry
+            ]
+        }));
+
         setInputEntry("");
     }
- */   
 
-    
+    const todaysEntries = entries[currentDateKey] || [];
 
-    
     return (
         <div className="journal">
             <div className="calendar">
@@ -58,9 +58,29 @@ function Journal() {
                         </div>
                         <CalendarDays day={currentDay} changeCurrentDay={changeCurrentDay} />
                     </div>
-                    
                 </div>
+                <div className="entry-panel">
+                    <div className="entries">
+                        <h3>{months[currentDay.getMonth()]} {currentDay.getDate()}</h3>
+                        {todaysEntries.map((entry, index) => (
+                            <p key={index}>{entry.text}</p>
+                        ))}
+                    </div>
+                    <div className="add-entry">
+                            <input
+                                type="text"
+                                placeholder="Write your entry here..."
+                                value={inputEntry}
+                                onChange={(e) =>
+                                    setInputEntry(e.target.value)
+                                }
+                            />
 
+                            <button className="add-btn" onClick={addEntry}>
+                                +
+                            </button>
+                    </div>
+                </div>
             </div>
             )
     

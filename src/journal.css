@@ -1,10 +1,11 @@
 .journal {
-    flex-direction: column;
+    flex-direction: row;
+    display: flex;
     height: 100vh;
-    justify-content: center;
-    align-items: center;
     padding: 25px 50px;
+    gap: 25px;
 }
+
 .calendar {
   width: 900px;
   height: 600px;
@@ -72,4 +73,23 @@
 .selected p {
   color: #cc0000;
   font-weight: bold;
+}
+
+.entry-panel {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5%;
+}
+
+.entries {
+  display: block;
+  height: 75%;
+}
+
+h3 {
+  color: #cc0000;
+}
+
+.add-entry {
+    position: relative;
 }
