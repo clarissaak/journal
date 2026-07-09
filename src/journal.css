@@ -104,17 +104,30 @@
 .entry-panel {
   display: flex;
   flex-direction: column;
+  height: 80%;
+  width: 25%;
   margin-top: 5%;
+  border: 1px solid #a6a6a6;
+  border-radius: 10px;
 }
 
 .entries {
   height: 75%;
+  overflow-y: scroll;
 }
 
 .entries ul {
   justify-items: left;
   list-style-type: circle;
-  padding: 0 20px ;
+}
+
+.entries ul:empty {
+  padding: 0;
+}
+
+.entries ul:empty::after {
+  content: attr(placeholder);
+  color: #a6a6a6;
 }
 
 .entries li {
@@ -127,5 +140,20 @@ h3 {
 }
 
 form {
-    position: relative;
+    margin-top: auto;
+    padding: 10px 0;
+}
+
+form input {
+  width: 73%;
+  border: 1px solid #a6a6a6;
+  padding: 14px;
+  border-radius: 10px;
+}
+
+form button {
+  margin-left: 5px;
+  padding: 14px;
+  border: 1px solid #a6a6a6;
+  border-radius: 10px;
 }

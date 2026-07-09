@@ -52,7 +52,7 @@ function Journal() {
                         <div className="table-header">
                             {
                             weekdays.map((weekday) => {
-                                return <div className="weekday"><p>{weekday}</p></div>
+                                return <div key={weekday} className="weekday"><p>{weekday}</p></div>
                             })
                             }
                         </div>
@@ -66,7 +66,7 @@ function Journal() {
                 <div className="entry-panel">
                     <h3>{months[currentDay.getMonth()]} {currentDay.getDate()}</h3>
                     <div className="entries">
-                        <ul>
+                        <ul placeholder="No Events">
                             {todaysEntries.map((entry, index) => (
                                 <li key={index}>
                                     {entry.text}
