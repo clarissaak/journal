@@ -1,8 +1,12 @@
 @font-face {
   font-family: "Curly Blush";
-  src: url(curly-blush-font/CurlyBlushRegularDemo-gwdZE.ttf);
+  src: url(fonts/curly-blush-font/CurlyBlushRegularDemo-gwdZE.ttf);
 }
 
+@font-face {
+  font-family: "Love Letters";
+  src: url(fonts/loveletters/LOVELETTERS.ttf);
+}
 .journal {
     flex-direction: row;
     display: flex;
@@ -10,6 +14,7 @@
     padding: 25px 50px;
     gap: 25px;
     font-family: "Curly Blush";
+    background-color: rgb(248, 245, 237);
 }
 
 .calendar {
@@ -23,7 +28,7 @@
   width: 100%;
   display: flex;
   align-items: center;
-  color: #cc0000;
+  color: #f2cbdc;
   font-size: 1.2em;
 }
 
@@ -49,6 +54,7 @@
   width: 14.27%;
   text-align: center;
   margin: 0;
+  color: #bdcfdb;
 }
 
 .table-content {
@@ -58,7 +64,7 @@
   display: grid;
   grid-template-columns: repeat(7, 1fr);
 
-  border: 1px solid #a6a6a6;
+  border: 1px dashed #bdcfdb;
   border-radius: 10px;
   overflow: hidden;
 }
@@ -66,9 +72,8 @@
 .calendar-day {
   height: 80px;
   position: relative;
-
-  border-right: 1px solid #a6a6a6;
-  border-bottom: 1px solid #a6a6a6;
+  border-right: 1px dashed #bdcfdb;
+  border-bottom: 1px dashed #bdcfdb;
 }
 
 .calendar-day:nth-child(7n) {
@@ -88,6 +93,7 @@
   right: 10px;
   color: #a6a6a6;
   margin-top: 5%;
+  font-size: 1.2em;
 }
 
 .current p {
@@ -95,22 +101,14 @@
 }
 
 .selected p {
-  color: #cc0000;
+  color: #f2cbdc;
   font-weight: bold;
 }
 
 .entry-indicator {
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-
-    width: 8px;
-    height: 8px;
-
-    transform: translateX(-50%);
-
-    background-color: #e8b4b4;
-    border-radius: 50%;
+    font-family: "Love Letters";
+    font-size: 5em;
+    color: #f3eabe;
 }
 
 .entry-panel {
@@ -119,13 +117,15 @@
   height: 80%;
   width: 25%;
   margin-top: 5%;
-  border: 1px solid #a6a6a6;
+  border: 1.5px dashed #bdcfdb;
   border-radius: 10px;
+  background-color: #eaf7ff;
 }
 
 .entries {
   height: 75%;
   overflow-y: scroll;
+  font-size: 1.3em;
 }
 
 .entries ul {
@@ -150,7 +150,7 @@
 }
 
 .entry-panel h2 {
-  color: #cc0000;
+  color: #f2cbdc;
   margin-bottom: 0;
   font-size: 1.7em;
 }
@@ -158,18 +158,29 @@
 form {
     margin-top: auto;
     padding: 10px 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
 
 form input {
   width: 73%;
-  border: 1px solid #a6a6a6;
   padding: 14px;
   border-radius: 10px;
+  border: 1.5px dashed #bdcfdb;
+  background-color: rgb(248, 245, 237);
 }
 
 form button {
   margin-left: 5px;
-  padding: 14px;
-  border: 1px solid #a6a6a6;
-  border-radius: 10px;
+  width: 40px;
+  height: 40px;
+  border: 1.5px dashed #bdcfdb;
+  border-radius: 50%;
+  justify-content: center;
+  color: #f2cbdc;
+  background-color: #ffeff6;
+  font-size: 30px;
+  
 }

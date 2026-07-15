@@ -49,7 +49,7 @@ function CalendarDays(props) {
                 <p>{day.number}</p>
 
                 {hasEntry && (
-                    <span className="entry-indicator"></span>
+                    <span className="entry-indicator">o</span>
                 )}
             </div>
         )
