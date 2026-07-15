@@ -46,13 +46,13 @@ function Journal() {
         <div className="journal">
             <div className="calendar">
                 <div className="calendar-header">
-                <h2>{months[currentDay.getMonth()]} {currentDay.getFullYear()}</h2>
+                <h1>{months[currentDay.getMonth()]} {currentDay.getFullYear()}</h1>
                 </div>
                     <div className="calendar-body">
                         <div className="table-header">
                             {
                             weekdays.map((weekday) => {
-                                return <div key={weekday} className="weekday"><p>{weekday}</p></div>
+                                return <h2 key={weekday} className="weekday"><p>{weekday}</p></h2>
                             })
                             }
                         </div>
@@ -64,7 +64,7 @@ function Journal() {
                     </div>
                 </div>
                 <div className="entry-panel">
-                    <h3>{months[currentDay.getMonth()]} {currentDay.getDate()}</h3>
+                    <h2>{months[currentDay.getMonth()]} {currentDay.getDate()}</h2>
                     <div className="entries">
                         <ul placeholder="No Events">
                             {todaysEntries.map((entry, index) => (

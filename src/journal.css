@@ -1,9 +1,15 @@
+@font-face {
+  font-family: "Curly Blush";
+  src: url(curly-blush-font/CurlyBlushRegularDemo-gwdZE.ttf);
+}
+
 .journal {
     flex-direction: row;
     display: flex;
     height: 100vh;
     padding: 25px 50px;
     gap: 25px;
+    font-family: "Curly Blush";
 }
 
 .calendar {
@@ -17,6 +23,12 @@
   width: 100%;
   display: flex;
   align-items: center;
+  color: #cc0000;
+  font-size: 1.2em;
+}
+
+.calendar-header h1 {
+  margin: 0;
 }
 
 .calendar-body {
@@ -31,12 +43,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
 }
 
 .weekday {
   width: 14.27%;
   text-align: center;
+  margin: 0;
 }
 
 .table-content {
@@ -117,26 +129,30 @@
 }
 
 .entries ul {
-  justify-items: left;
+  text-align: left;
   list-style-type: circle;
 }
 
 .entries ul:empty {
+  text-align: center;
   padding: 0;
 }
 
 .entries ul:empty::after {
   content: attr(placeholder);
   color: #a6a6a6;
+  font-size: x-large;
 }
 
 .entries li {
   padding: 5px;
+  justify-content: left;
 }
 
-h3 {
+.entry-panel h2 {
   color: #cc0000;
   margin-bottom: 0;
+  font-size: 1.7em;
 }
 
 form {
