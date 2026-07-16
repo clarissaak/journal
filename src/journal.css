@@ -54,16 +54,18 @@
   width: 14.27%;
   text-align: center;
   margin: 0;
-  color: #bdcfdb;
+  color: #9fbfd4;
+}
+
+.weekday p {
+  margin: 0.5em;
 }
 
 .table-content {
   width: 100%;
   flex-grow: 1;
-
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-
   border: 1px dashed #bdcfdb;
   border-radius: 10px;
   overflow: hidden;
@@ -85,7 +87,7 @@
 }
 
 .calendar-day:hover {
-  background-color: rgba(0,0,0,.10);
+  background-color:  rgb(255, 246, 223);
 }
 
 .calendar-day p {
@@ -125,7 +127,7 @@
 .entries {
   height: 75%;
   overflow-y: scroll;
-  font-size: 1.3em;
+  font-size: 1.5em;
 }
 
 .entries ul {
@@ -140,8 +142,8 @@
 
 .entries ul:empty::after {
   content: attr(placeholder);
-  color: #a6a6a6;
-  font-size: x-large;
+  color: #9fbfd4;
+  font-size: 1.2em;
 }
 
 .entries li {
@@ -152,7 +154,8 @@
 .entry-panel h2 {
   color: #f2cbdc;
   margin-bottom: 0;
-  font-size: 1.7em;
+  margin-top: 0.5em;
+  font-size: 2em;
 }
 
 form {

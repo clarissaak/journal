@@ -15,9 +15,13 @@ function Journal() {
         setCurrentDay(new Date(day.year, day.month, day.number));
     }
 
+    function getDateKey(date) {
+        return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
+    }
+
     const [inputEntry, setInputEntry] = useState("");
     const [entries, setEntries] = useState({});
-    const currentDateKey = currentDay.toISOString().split("T")[0];
+    const currentDateKey = getDateKey(currentDay);
 
     function addEntry() {
         if (inputEntry.trim() === "") {
@@ -66,7 +70,7 @@ function Journal() {
                 <div className="entry-panel">
                     <h2>{months[currentDay.getMonth()]} {currentDay.getDate()}</h2>
                     <div className="entries">
-                        <ul placeholder="No Events">
+                        <ul placeholder="no events">
                             {todaysEntries.map((entry, index) => (
                                 <li key={index}>
                                     {entry.text}
