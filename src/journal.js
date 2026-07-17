@@ -1,6 +1,18 @@
-import { useState } from "react";
 import CalendarDays from "./calendarDays";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import { forwardRef, useState } from "react";
 import './journal.css'
+
+const MonthButton = forwardRef(({ value, onClick }, ref) => (
+    <h1
+        ref={ref}
+        onClick={onClick}
+        className="calendar-title"
+    >
+        {value}
+    </h1>
+));
 
 function Journal() {
 
@@ -46,11 +58,19 @@ function Journal() {
 
     const todaysEntries = entries[currentDateKey] || [];
 
+    const [showMonthPicker, setShowMonthPicker] = useState(false);
+
     return (
         <div className="journal">
             <div className="calendar">
                 <div className="calendar-header">
-                <h1>{months[currentDay.getMonth()]} {currentDay.getFullYear()}</h1>
+                    <DatePicker
+                        selected={currentDay}
+                        onChange={(date) => setCurrentDay(date)}
+                        showMonthYearPicker
+                        dateFormat="MMMM yyyy"
+                        customInput={<MonthButton />}
+                    />
                 </div>
                     <div className="calendar-body">
                         <div className="table-header">
